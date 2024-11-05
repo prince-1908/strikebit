@@ -24,7 +24,7 @@ export const MainLayout = ({children}: { children: React.ReactNode }) => {
   }, []);
 
   return <>
-    <Container as="main" className={extraMainClass}>
+    <Container as="main" className={`${extraMainClass}`}>
       <DistribrainEngineBackgroundImage/>
 
       <Auth0UserProvider>

@@ -2,6 +2,7 @@ import { Badge, Button, Card, Col, Container, Row, Spinner, Stack } from "react-
 import { NextPage } from "next";
 import React, { useState } from "react";
 import Logo from "../assets/images/Logo.svg";
+import logo2 from "../assets/images/logo2.png";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import useAsyncEffect from "use-async-effect";
@@ -117,20 +118,20 @@ const HomePageBody = (
         className="d-flex h-100 px-3 py-2 align-items-center rounded-pill no-primary-gradient"
         onClick={() => onLogoutClicked()}
       >
-        <span className="d-flex fs-4 me-2"><FiLogOut/></span> Sign Out
+        <span className="d-flex fs-4 me-2"><FiLogOut /></span> Sign Out
       </Button>
     </Container>
 
     <Container className="h1 p-0 text-center">
       Total <Badge bg="primary" pill>
-      {uiIntNumberNiceFormat(nodesInformation.purchaseInfo.globalPurchasedNodesCount)}
-    </Badge> DistriBrain Engines Sold
+        {uiIntNumberNiceFormat(nodesInformation.purchaseInfo.globalPurchasedNodesCount)}
+      </Badge> DistriBrain Engines Sold
     </Container>
 
     <Container className="h1 p-0 text-center">
       Total <Badge bg="primary" pill>
-      {uiIntNumberNiceFormat(nodesInformation.purchaseInfo.globalPurchasedDePinKeysCount)}
-    </Badge> DePIN Keys Sold
+        {uiIntNumberNiceFormat(nodesInformation.purchaseInfo.globalPurchasedDePinKeysCount)}
+      </Badge> DePIN Keys Sold
     </Container>
 
     <Container className="h1 m-0 text-center position-relative">
@@ -149,7 +150,7 @@ const HomePageBody = (
     </Container>
 
     <Container className="mb-1 h2 text-center">
-      <StarIcon/><span className="mx-3">My Referral Code</span><StarIcon/>
+      <StarIcon /><span className="mx-3">My Referral Code</span><StarIcon />
     </Container>
 
     <Row>
@@ -169,19 +170,19 @@ const HomePageBody = (
 
                 <CopyToClipboard
                   text={referralCode.code}
-                  onCopy={() => toast.info("Referral code copied!", {autoClose: 1500})}
+                  onCopy={() => toast.info("Referral code copied!", { autoClose: 1500 })}
                 >
                   <Button variant="primary ms-3" title="Copy referral code">
-                    <MdOutlineContentCopy/>
+                    <MdOutlineContentCopy />
                   </Button>
                 </CopyToClipboard>
 
                 <CopyToClipboard
                   text={routes.referralLink(referralCode.code)}
-                  onCopy={() => toast.info("Referral link copied!", {autoClose: 1500})}
+                  onCopy={() => toast.info("Referral link copied!", { autoClose: 1500 })}
                 >
                   <Button variant="primary ms-2" title="Copy referral link">
-                    <TbLink/>
+                    <TbLink />
                   </Button>
                 </CopyToClipboard>
               </Col>
@@ -200,7 +201,7 @@ const HomePageBody = (
     </Row>
 
     <Container className="mt-2 mb-1 h2 text-center">
-      <StarIcon/><span className="mx-3">My Engines</span><StarIcon/>
+      <StarIcon /><span className="mx-3">My Engines</span><StarIcon />
     </Container>
 
     <Row>
@@ -236,17 +237,17 @@ const HomePageBody = (
               </Col>
 
               <Col xs={12}
-                   md={6}
-                   className="d-flex flex-column justify-content-evenly m-0 mt-3 mt-md-0 h6"
+                md={6}
+                className="d-flex flex-column justify-content-evenly m-0 mt-3 mt-md-0 h6"
               >
                 <p>
                   For every 5 purchased Engines, you are granted a <a
-                  href={routes.docs.dePinKey()}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  DePIN Key
-                </a>!
+                    href={routes.docs.dePinKey()}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    DePIN Key
+                  </a>!
                 </p>
 
                 <p className="mb-0">Each Engine and each DePIN Key generate
@@ -260,7 +261,7 @@ const HomePageBody = (
     </Row>
 
     <Container className="mt-2 mb-1 h2 text-center">
-      <StarIcon/><span className="mx-3">My Balance</span><StarIcon/>
+      <StarIcon /><span className="mx-3">My Balance</span><StarIcon />
     </Container>
 
     <Card
@@ -306,13 +307,13 @@ const HomePageBody = (
             </Stack>
 
             {!nodesInformation.featureFlags.holdingRewardsWithdrawDisabled && <>
-                <Button
-                    variant="primary p-3 px-4 fs-5"
-                    disabled={!canWithdrawHoldingRewards}
-                    onClick={() => onWithdrawHoldingRewardsClicked()}
-                >
-                    <TbShare2 className="me-2"/> Claim {commonTerms.holdingRewardTokenName}
-                </Button>
+              <Button
+                variant="primary p-3 px-4 fs-5"
+                disabled={!canWithdrawHoldingRewards}
+                onClick={() => onWithdrawHoldingRewardsClicked()}
+              >
+                <TbShare2 className="me-2" /> Claim {commonTerms.holdingRewardTokenName}
+              </Button>
             </>}
           </Card.Body>
         </Card>
@@ -330,20 +331,20 @@ const HomePageBody = (
               </div>
 
               {!nodesInformation.featureFlags.referralRewardsWithdrawDisabled && <>
-                  <Button
-                      variant="primary p-3 px-4 fs-5"
-                      disabled={BigInt(userNodesSummary.totalReferralRewardAvailableTokenAmount) <= 0}
-                      onClick={() => onWithdrawReferralRewardsClicked()}
-                  >
-                      <BiMoneyWithdraw className="me-2"/> Withdraw
-                  </Button>
+                <Button
+                  variant="primary p-3 px-4 fs-5"
+                  disabled={BigInt(userNodesSummary.totalReferralRewardAvailableTokenAmount) <= 0}
+                  onClick={() => onWithdrawReferralRewardsClicked()}
+                >
+                  <BiMoneyWithdraw className="me-2" /> Withdraw
+                </Button>
               </>}
 
               <Button
                 variant="primary p-3 px-4 fs-5"
                 onClick={() => onViewReferralPurchasesHistoryClicked()}
               >
-                <MdOutlineHistory className="me-2"/> Reward History
+                <MdOutlineHistory className="me-2" /> Reward History
               </Button>
             </Stack>
           </Card.Body>
@@ -465,34 +466,36 @@ const HomePage: NextPage = () => {
         }}
       >
         <Image
-          src={Logo}
-          alt="DistriBrain"
-          priority={true}
-          className="w-100 h-auto px-3 mb-3"
+          src={logo2}
+          alt="StrikeBit"
+          height={168}
+          width={161}
+          className=""
           style={{
-            maxHeight: "80px"
+            width: "100%",
+            objectFit: "contain"
           }}
         />
 
         {!loaded && <>
-            <Spinner style={{
-              alignSelf: "center",
-              // @ts-ignore
-              "--bs-spinner-width": "5rem",
-              "--bs-spinner-height": "5rem"
-            }}/>
+          <Spinner style={{
+            alignSelf: "center",
+            // @ts-ignore
+            "--bs-spinner-width": "5rem",
+            "--bs-spinner-height": "5rem"
+          }} />
         </>}
 
         {loaded && <>
-            <HomePageBody
-                nodesInformation={nodesInformation}
-                userNodesSummary={userNodesSummary}
-                referralCode={referralCode}
-                refetchData={() => fetchData()}
-                onViewReferralPurchasesHistoryClicked={() => showReferralPurchasesHistoryDialog()}
-                onWithdrawReferralRewardsClicked={() => showWithdrawReferralRewardsDialog()}
-                onWithdrawHoldingRewardsClicked={() => showWithdrawHoldingRewardsDialog()}
-            />
+          <HomePageBody
+            nodesInformation={nodesInformation}
+            userNodesSummary={userNodesSummary}
+            referralCode={referralCode}
+            refetchData={() => fetchData()}
+            onViewReferralPurchasesHistoryClicked={() => showReferralPurchasesHistoryDialog()}
+            onWithdrawReferralRewardsClicked={() => showWithdrawReferralRewardsDialog()}
+            onWithdrawHoldingRewardsClicked={() => showWithdrawHoldingRewardsDialog()}
+          />
         </>}
       </Container>
     </>

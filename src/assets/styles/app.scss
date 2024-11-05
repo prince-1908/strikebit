@@ -70,3 +70,62 @@ main.container {
     height: 3rem;
   }
 }
+
+/* BACKGROUND COLORS */
+.bg-red{
+  background-color: #C41414;
+}
+
+.bg-blue{
+  background-color: #1214FD;
+}
+
+.bg-gray{
+  background-color: #686868;
+}
+
+.bg-dark-gray{
+  background-color: #151519;
+}
+
+/* BUTTONS */
+.blue-btn {
+  background-color: #1214fd;
+  color: white;
+  padding: 7.5px 15px;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .blue-btn {
+    background-color: #1214fd;
+    color: white;
+    padding: 7.5px 15px;
+    font-weight: 700;
+  }
+}
+
+@media (min-width: 1024px) {
+  .blue-btn {
+    background-color: #1214fd;
+    color: white;
+    padding: 7.5px 15px;
+    font-weight: 700;
+  }
+}
+
+@media (min-width: 1280px) {
+  .blue-btn {
+    background-color: #1214fd;
+    color: white;
+    padding: 16px 28px;
+    font-weight: 700;
+  }
+}
+
+.white-btn{
+  background-color: white;
+  color: #1214FD;
+  padding: 16px 24px;
+  font-weight: 700;
+}

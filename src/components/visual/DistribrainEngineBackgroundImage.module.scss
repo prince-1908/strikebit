@@ -1,19 +1,12 @@
 .root {
   position: absolute;
-
   left: 50%;
   top: 50%;
   min-width: 100%;
   min-height: 100%;
-
   transform: translateX(-50%) translateY(-50%) scale(1.15);
-
   z-index: -1;
   overflow: visible;
-
-  opacity: 0.08;
-
-  filter: hue-rotate(-70deg);
 }
 
 // Animation causes flicker on Chrome on Android
@@ -40,23 +33,5 @@
 
   .ring3 {
     animation: rotate 13s infinite linear;
-  }
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes rotate-inverse {
-  from {
-    transform: rotate(360deg);
-  }
-  to {
-    transform: rotate(0deg);
   }
 }
