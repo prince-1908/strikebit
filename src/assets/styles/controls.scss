@@ -1,0 +1,38 @@
+@use "common" as *;
+
+@use "bootstrap" as *;
+
+.btn-accented {
+  padding: 0.65rem 2rem;
+
+  background: $color-accent;
+  color: white;
+
+  &:hover {
+    background: rgba($color-accent, 0.88);
+  }
+
+  &.disabled {
+    background: #809ea7;
+  }
+
+  &.btn-accented-action {
+    min-height: 45px;
+    font-weight: 600;
+  }
+}
+
+.form-control {
+  min-height: 45px;
+}
+
+.form-gray {
+  .form-control {
+    border: 0;
+    background: #F4F4F4;
+
+    &::placeholder {
+      color: #A5A99F;
+    }
+  }
+}

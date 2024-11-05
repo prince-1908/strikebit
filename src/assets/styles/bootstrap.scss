@@ -1,0 +1,20 @@
+@import "_variables.scss";
+
+$container-max-widths: (
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1140px,
+        xxl: 1372px
+);
+$enable-rounded: true;
+$btn-border-radius: 0.75rem;
+$btn-border-radius-sm: 0.25rem;
+$btn-border-radius-lg: 0.75rem;
+$border-radius: 0.75rem;
+$border-radius-sm: 0.25rem;
+$border-radius-lg: 0.75rem;
+
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+

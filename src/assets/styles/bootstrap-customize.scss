@@ -1,0 +1,130 @@
+@use "common" as *;
+@use "bootstrap" as *;
+
+$body-bg: #100f15;
+
+body {
+  //--bs-body-color: #{$body-color};
+  //--bs-secondary-color: #6c757d;
+
+  background: radial-gradient(circle at center, rgba(6, 188, 191, 0.15), var(--bs-body-bg) 60%);
+}
+
+.badge {
+  white-space: normal;
+}
+
+.navbar {
+  --bs-navbar-padding-x: 0.75rem;
+  z-index: 100;
+}
+
+.btn {
+}
+
+.btn-border {
+  border: var(--bs-btn-border-width) solid var(--bs-btn-border-color);
+}
+
+@mixin btn-primary-gradient {
+  background: linear-gradient(135deg, rgba(51, 51, 215, 1) 0%, rgba(0, 209, 188, 1) 100%);
+  background-size: 100% 100%;
+  box-shadow: none;
+
+  transition: opacity 0.15s ease-in-out,
+  color 0.15s ease-in-out,
+  background 0.15s ease-in-out,
+  background-size 0.15s ease-in-out,
+  border-color 0.15s ease-in-out,
+  box-shadow 0.15s ease-in-out;
+
+  &:hover {
+    background-size: 120% 120%;
+  }
+}
+
+.btn-primary:not(.no-primary-gradient) {
+  @include btn-primary-gradient;
+}
+
+.btn-primary-gradient {
+  @include btn-primary-gradient;
+}
+
+.card-body {
+  @include relative-font-size-rem(16, 19);
+}
+
+h5, .h5 {
+  @include relative-font-size-rem(24, 40);
+  font-weight: bold;
+}
+
+h2, .h2 {
+  font-weight: bold;
+}
+
+h3, .h3 {
+  font-weight: bold;
+}
+
+.form-control {
+  border-color: #DCDCDC;
+}
+
+b, strong {
+  font-weight: 600;
+}
+
+a {
+  @include regular-link;
+}
+
+.card {
+  a:not(.btn,.dropdown-item) {
+    @include regular-content-link;
+  }
+
+  .card-subtitle {
+    --bs-card-subtitle-color: #AAA;
+  }
+}
+
+hr {
+  height: 2px;
+  background: #E5E5E5;
+  opacity: 1;
+  border: 0;
+}
+
+.modal {
+  --bs-modal-bg: var(--bs-dark);
+  --bs-modal-padding: 1rem;
+  --bs-modal-header-padding-x: 1rem;
+  --bs-modal-header-padding-y: 1rem;
+  --bs-modal-header-padding: 1rem 1rem;
+
+  @include media-breakpoint-up(sm) {
+    --bs-modal-padding: 2rem;
+    --bs-modal-header-padding-x: 2rem;
+    --bs-modal-header-padding-y: 2rem;
+    --bs-modal-header-padding: 2rem 2rem;
+  }
+
+  .modal-header {
+    padding-bottom: 0;
+  }
+
+  .modal-footer {
+    padding-top: 0;
+  }
+}
+
+.modal-backdrop {
+  //background: #152332;
+
+  &.show {
+    opacity: 0.65;
+  }
+}
+

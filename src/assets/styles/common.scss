@@ -1,0 +1,67 @@
+@use "sass:math";
+
+@use "bootstrap" as *;
+
+$header-collapse-breakpoint: lg;
+$footer-collapse-breakpoint: xl;
+
+$font-base-size-px: 16;
+$color-accent: $primary;
+
+@mixin regular-link {
+  color: white;
+
+  &:hover {
+    opacity: 0.87;
+  }
+}
+
+@mixin regular-content-link {
+  color: lighten($color-accent, 15%);
+
+  &:hover {
+    opacity: 0.87;
+  }
+}
+
+@mixin relative-font-size-rem($font-size-px, $line-height-px) {
+  font-size: math.div($font-size-px * 1rem, $font-base-size-px);
+  line-height: math.div($line-height-px * 1rem, $font-base-size-px);
+}
+
+@mixin relative-font-size-em($font-size-px, $line-height-px) {
+  font-size: math.div($font-size-px * 1em, $font-base-size-px);
+  line-height: math.div($line-height-px * 1em, $font-base-size-px);
+}
+
+@mixin pretty-ul {
+  ul {
+    list-style: none;
+
+    li::before {
+      content: "\25A0\FE0E";
+      color: $color-accent;
+      display: inline-block;
+      width: 1.1em;
+    }
+  }
+}
+
+.text-bold-500 {
+  font-weight: 500;
+}
+
+.me-2-5 {
+  margin-right: 0.75rem !important;
+}
+
+.static-link {
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+}

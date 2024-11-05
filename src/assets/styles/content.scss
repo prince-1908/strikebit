@@ -1,0 +1,112 @@
+@use "common" as *;
+@use "sass:math";
+
+@use "bootstrap" as *;
+
+@mixin shine-animation {
+  $anim-duration: 2; // in seconds
+  $anim-speed: 100; // in seconds
+
+  --shine-degree: 120deg;
+  --shine-color: rgba(193, 165, 239, 0.33);
+  --shine-effect: linear-gradient(
+                  var(--shine-degree),
+                  transparent,
+                  var(--shine-color),
+                  transparent
+  );
+  --shine-transition: all #{$anim-speed}s ease-in-out;
+
+  @keyframes shine {
+    0% {
+      left: -100%;
+      transition-property: left;
+    }
+    #{($anim-speed / ($anim-duration + $anim-speed) * 100%)},
+    100% {
+      left: 100%;
+      transition-property: left;
+    }
+  }
+
+  background: var(--shine-effect);
+  animation: shine #{$anim-duration}s ease-in-out infinite;
+}
+
+.animated-edge-button {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.animated-edge-button-wrapper {
+  display: inline-block;
+  padding: 0.35rem;
+
+  z-index: 3;
+  overflow: hidden;
+
+  border-radius: var(--bs-border-radius);
+}
+
+.animated-edge-button:not([disabled]):before {
+  content: '';
+  z-index: -1;
+  text-align: center;
+  top: 0;
+  left: 0;
+  transform: scaleX(0.8) scaleY(1.2);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  @include shine-animation;
+}
+
+.action-button {
+  position: relative;
+  padding: 1.25rem 1.5rem;
+
+  font-size: 1.25rem;
+}
+
+.card.bg-blur-primary {
+  //background: rgba(110, 69, 202, 0.1);
+  background: rgba(34, 103, 206, 0.1);
+  backdrop-filter: blur(8px);
+
+  border: 0;
+}
+
+.web3-connect-button-wrapper {
+  width: 100%;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.web3-connect-button-wrapper > * {
+  width: 100%;
+  max-width: 50%;
+  min-width: 12rem;
+}
+
+button[data-testid="rk-connect-button"],
+button[data-testid="rk-account-button"],
+button[data-testid="rk-wrong-network-button"] {
+  height: 3rem;
+  width: 100%;
+
+  text-align: center !important;
+  justify-content: center;
+}
+
+[data-rk] {
+  display: flex;
+  --rk-fonts-body: var(--font-primary), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+  --rk-radii-connectButton: var(--bs-border-radius) !important;
+  --rk-colors-accentColor: var(--bs-primary) !important;
+  --rk-colors-connectButtonBackground: var(--bs-primary) !important;
+  --rk-colors-actionButtonSecondaryBackground: var(--bs-primary) !important;
+  --rk-colors-modalBackground: var(--bs-dark) !important;
+}
